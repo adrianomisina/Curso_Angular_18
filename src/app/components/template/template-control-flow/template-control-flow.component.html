@@ -1,0 +1,103 @@
+<h2>Control flow</h2>
+
+<h3>IF, FOR</h3>
+
+<!-- Forma Nova -->
+
+<!-- @if(loadingData$ | async; as data) {
+  <ul>
+    @for(item of data; track item) {
+      <li>{{item}} - Teste</li>
+    }
+  </ul>
+} @else {
+  <p>Carregando...</p>
+} -->
+
+<!-- @for(item of loadingData$ | async; track item) {
+  <li>{{item}} - Teste2</li>
+} -->
+
+<!-- Forma Antiga -->
+
+<!-- <ng-container *ngIf="loadingData$ | async as data; else loading">
+<ul>
+  <ng-container *ngFor="let item of data; trackBy: trackByFn">
+    <li>{{item}}</li>
+  </ng-container>
+  
+</ul>
+</ng-container>
+<ng-template #loading>
+  <p>Carregando</p>
+</ng-template> -->
+
+<!-- @for(
+  item of itens; track item.name;
+  let i = $index;
+  let c = $count;
+  let f = $first;
+  let l = $last;
+  let e = $even;
+  let o = $odd;
+) {
+  <p>{{item.name}}</p>
+  <p>index - {{i}}</p>
+  <p>count - {{c}}</p>
+  <p>first - {{f}}</p>
+  <p>last -{{l}}</p>
+  <p>even - {{e}}</p>
+  <p>odd - {{o}}</p>
+}
+
+<hr> -->
+
+<!-- Forma Antiga -->
+
+<!-- <ng-container *ngFor="
+  let item of itens;
+  let i = index;
+  let c = count;
+  let f = first;
+  let l = last;
+  let e = even;
+  let o = odd;
+  trackBy: trackByFn
+">
+  <p>{{item.name}}</p>
+  <p>index - {{i}}</p>
+  <p>count - {{c}}</p>
+  <p>first - {{f}}</p>
+  <p>last -{{l}}</p>
+  <p>even - {{e}}</p>
+  <p>odd - {{o}}</p>
+</ng-container>
+
+<input type="text" #name>
+<button (click)="addNewName(name.value, name)">Add Name</button> -->
+
+<ul>
+  @for (item of itens; track item.name) {
+  <li>{{item.name}}</li>
+  } @empty {
+  <li>Não contém valores</li>
+  }
+</ul>
+
+
+<!-- Forma Antiga -->
+
+<ul>
+  <ng-container *ngIf="itens.length === 0; else itensExist">
+    <li>Não contém valores </li>
+  </ng-container>
+
+  <ng-template #itensExist>
+    <ng-container *ngFor="let item of itens">
+      <li>
+        {{item.name}}
+      </li>
+    </ng-container>
+  </ng-template>
+  
+</ul>

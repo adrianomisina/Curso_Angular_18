@@ -1,0 +1,11 @@
+<h2>Deferrable Views</h2>
+
+@defer(on interaction) {
+  <app-new-component />
+} @placeholder(minimum 5s){
+  <p>Mostrar antes de carregar algo.</p>
+} @loading(minimum 5s) { 
+  <p>loading...</p>
+} @error {
+  <p>Loading failed :( </p>
+}
