@@ -11,7 +11,11 @@
 
   <li>async: {{ loadingData$ | async }}</li>
 
-  <li>currency : {{200.5 | currency : 'BRL'}}</li>
-  <li></li>
-  <li></li>
+  <li>currency : {{ 200.5 | currency : "BRL" }}</li>
+
+  <li>number {{ 2000.5544 | number : "1.1-1" }}</li>
+
+  <li>percent: {{ 0.155 | percent : "1.0-4" }}</li>
+
+  <li>customString: {{ "Adriano Misina" | customString: "upper"}}</li>
 </ul>
