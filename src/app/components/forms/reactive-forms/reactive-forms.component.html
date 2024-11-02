@@ -1,1 +1,10 @@
 <h2>Reactive forms</h2>
+<form [formGroup]="profileForm">
+  <label>
+    Nome:
+    <input type="text" formControlName="name">
+    <p> value: {{profileForm.value.name}}</p>
+  </label>
+
+  <button type="button" (click)="updateName()">Update Name</button>
+</form>

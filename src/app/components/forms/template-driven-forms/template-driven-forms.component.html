@@ -1,7 +1,7 @@
 <h2>Template-drive forms</h2>
 
-<form>
-  <!-- <label>
+<form #form="ngForm" (ngSubmit)="submitForm(form)" >
+  <label>
     Nome
   </label>
 
@@ -125,21 +125,26 @@
     <p>valid: {{techReact.valid}}</p>
     <p>dirty: {{techReact.dirty}}</p>
     <p>touched: {{techReact.touched}}</p>
-  <hr> -->
-
   <hr>
-    <select name="selectComidas" #comidas="ngModel" ngModel>
-      <option value="">Selecione um alimento:</option>
-      @for(item of listComidas(); track item) {
-        <option [ngValue]="item">{{item.comida}}</option>
-      }
-    </select>
-    <br><br>
-    <p>value {{comidas.value | json}}</p>
-    <p>Comida: {{comidas.value.comida}}</p>
-    <p>Preço: {{comidas.value.preco}}</p>
-    <p>valid {{comidas.valid}}</p>
-    <p>dirty {{comidas.dirty}}</p>
-    <p>touched: {{comidas.touched}}</p>
-    <hr>   
+
+  <hr />
+  <select name="selectComidas" #comidas="ngModel" ngModel>
+    <option value="">Selecione um alimento:</option>
+    @for(item of listComidas(); track item) {
+    <option [ngValue]="item">{{ item.comida }}</option>
+    }
+  </select>
+  <br /><br />
+  <p>value {{ comidas.value | json }}</p>
+  <p>Comida: {{ comidas.value?.comida }}</p>
+  <p>Preço: {{ comidas.value?.preco }}</p>
+  <p>valid {{ comidas.valid }}</p>
+  <p>dirty {{ comidas.dirty }}</p>
+  <p>touched: {{ comidas.touched }}</p>
+  <hr />
+
+  <button [disabled]="form.valid">Send</button>
 </form>
+
+<p>Form Valid {{ form.valid }}</p>
+<p>Form Value {{ form.value | json }}</p>

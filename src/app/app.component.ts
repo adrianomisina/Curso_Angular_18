@@ -41,10 +41,10 @@ import { TemplateDrivenFormsComponent } from "./components/forms/template-driven
     <!-- <app-template-deferrable-views /> -->
     <!-- <app-signal /> -->
     <!-- <app-pai-ou-mae /> -->
+    <!-- <app-template-driven-forms /> -->
     <h1>Curso de Angular</h1>
 
     <app-reactive-forms />
-    <app-template-driven-forms />
 
 
 
